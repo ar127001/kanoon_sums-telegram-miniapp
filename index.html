@@ -26,7 +26,7 @@
             color: #ffffff;
             background-color: #071a52;
             background-image:
-                linear-gradient(rgba(4, 15, 55, 0.82), rgba(4, 15, 55, 0.9)),
+                linear-gradient(rgba(4, 15, 55, 0.80), rgba(4, 15, 55, 0.88)),
                 url("background.jpg");
             background-size: cover;
             background-position: center bottom;
@@ -46,8 +46,9 @@
             margin-bottom: 20px;
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 24px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
+            background: rgba(18, 31, 75, 0.84);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
         }
 
@@ -93,12 +94,13 @@
         .search-box input {
             width: 100%;
             border: 1px solid rgba(255, 255, 255, 0.14);
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(21, 35, 82, 0.84);
             color: #ffffff;
             border-radius: 16px;
             padding: 14px 16px;
             font-size: 14px;
             outline: none;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
@@ -127,8 +129,10 @@
             color: #d9e7ff;
             padding: 8px 12px;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.10);
+            background: rgba(21, 35, 82, 0.84);
             border: 1px solid rgba(255, 255, 255, 0.14);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
 
         .grid {
@@ -141,24 +145,31 @@
             text-decoration: none;
             color: #ffffff;
             border-radius: 22px;
-            padding: 16px 12px 14px;
-            min-height: 148px;
-            background: rgba(255, 255, 255, 0.10);
-            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 18px 12px 16px;
+            min-height: 150px;
+            background: linear-gradient(
+                180deg,
+                rgba(39, 54, 108, 0.92),
+                rgba(28, 41, 89, 0.90)
+            );
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            -webkit-backdrop-filter: blur(12px);
             backdrop-filter: blur(12px);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.20);
+            box-shadow:
+                0 10px 24px rgba(0, 0, 0, 0.24),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
             transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             text-align: center;
             -webkit-tap-highlight-color: transparent;
         }
 
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
             border-color: rgba(255, 255, 255, 0.24);
         }
 
@@ -167,17 +178,23 @@
         }
 
         .icon-wrap {
-            width: 64px;
-            height: 64px;
-            border-radius: 20px;
-            margin-bottom: 12px;
+            width: 70px;
+            height: 70px;
+            border-radius: 22px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            background: linear-gradient(135deg, rgba(91, 160, 255, 0.28), rgba(255, 255, 255, 0.12));
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+            font-size: 32px;
+            background: linear-gradient(
+                135deg,
+                rgba(103, 133, 218, 0.42),
+                rgba(79, 104, 184, 0.28)
+            );
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.10),
+                0 6px 14px rgba(0, 0, 0, 0.16);
         }
 
         .card-title {
@@ -185,13 +202,7 @@
             line-height: 1.9;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 6px;
-        }
-
-        .card-sub {
-            font-size: 11px;
-            line-height: 1.8;
-            color: #d9e7ff;
+            margin: 0;
         }
 
         .empty-state {
@@ -200,10 +211,12 @@
             padding: 28px 16px;
             margin-top: 10px;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(18, 31, 75, 0.88);
             border: 1px solid rgba(255, 255, 255, 0.12);
             color: #d7e3ff;
             line-height: 2;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
 
         .footer {
@@ -217,6 +230,16 @@
 
         .footer strong {
             color: #ffffff;
+        }
+
+        @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+            .hero,
+            .search-box input,
+            .count-badge,
+            .card,
+            .empty-state {
+                background-color: rgba(25, 39, 86, 0.96);
+            }
         }
 
         @media (min-width: 700px) {
@@ -237,7 +260,7 @@
             }
 
             .card {
-                min-height: 160px;
+                min-height: 165px;
             }
         }
     </style>
@@ -296,92 +319,77 @@
             {
                 name: "کانون کتاب",
                 icon: "📚",
-                url: "https://t.me/sumsketab",
-                sub: "مطالعه، کتاب‌خوانی و فرهنگ کتاب"
+                url: "https://t.me/sumsketab"
             },
             {
                 name: "کانون نجوم",
                 icon: "🔭",
-                url: "https://t.me/Sums_Astronomy",
-                sub: "ستاره‌ها، آسمان و رصد"
+                url: "https://t.me/Sums_Astronomy"
             },
             {
                 name: "کانون شعر و ادب دچار",
                 icon: "✒️",
-                url: "https://t.me/dochar_sums",
-                sub: "شعر، ادبیات و نویسندگی"
+                url: "https://t.me/dochar_sums"
             },
             {
                 name: "کانون خانه سبز",
                 icon: "🌱",
-                url: "https://t.me/Sums_Green_House",
-                sub: "محیط زیست و طبیعت"
+                url: "https://t.me/Sums_Green_House"
             },
             {
                 name: "کانون خیریه طعم مهربانی",
-                icon: "❤️",
-                url: "https://t.me/taamemehr_sums",
-                sub: "مهربانی و فعالیت‌های خیرخواهانه"
+                icon: "🫂",
+                url: "https://t.me/taamemehr_sums"
             },
             {
                 name: "کانون خیریه هم‌نبض",
                 icon: "💌",
-                url: "https://t.me/hamn_abzz",
-                sub: "همدلی و خدمات داوطلبانه"
+                url: "https://t.me/hamn_abzz"
             },
             {
                 name: "کانون هلال احمر",
                 icon: "🏥",
-                url: "https://t.me/sumshelal",
-                sub: "امداد، سلامت و انسان‌دوستی"
+                url: "https://t.me/sumshelal"
             },
             {
                 name: "کانون رسانه",
                 icon: "📸",
-                url: "https://t.me/MediaCenter_sums",
-                sub: "رسانه، تولید محتوا و خبر"
+                url: "https://t.me/MediaCenter_sums"
             },
             {
                 name: "کانون گردشگری",
                 icon: "🏕️",
-                url: "https://t.me/gardeshgari_sums",
-                sub: "سفر، طبیعت‌گردی و تجربه"
+                url: "https://t.me/gardeshgari_sums"
             },
             {
                 name: "کانون هنر",
                 icon: "🎨",
-                url: "https://t.me/kanoonhonar_sums",
-                sub: "آفرینش، هنر و خلاقیت"
+                url: "https://t.me/kanoonhonar_sums"
             },
             {
                 name: "کانون جهادی کیش اندیش",
                 icon: "🤲",
-                url: "https://t.me/Kishandish_sums",
-                sub: "خدمت‌رسانی و فعالیت جهادی"
+                url: "https://t.me/Kishandish_sums"
             },
             {
                 name: "کانون مهدویت",
                 icon: "🕌",
-                url: "https://t.me/tanha_nisti313",
-                sub: "معارف، معنویت و مهدویت"
+                url: "https://t.me/tanha_nisti313"
             },
             {
                 name: "کانون تئاتر",
                 icon: "🎭",
-                url: "https://t.me/kanoon_theatre",
-                sub: "نمایش، اجرا و صحنه"
+                url: "https://t.me/kanoon_theatre"
             },
             {
                 name: "کانون فیلم",
                 icon: "🎥",
-                url: "https://t.me/AnjomanFilmCh",
-                sub: "سینما، نقد و هنر تصویر"
+                url: "https://t.me/AnjomanFilmCh"
             },
             {
                 name: "کانون موسیقی",
                 icon: "🎼",
-                url: "https://t.me/music_sums",
-                sub: "آوا، نوا و موسیقی"
+                url: "https://t.me/music_sums"
             }
         ];
 
@@ -414,7 +422,6 @@
                 card.innerHTML = `
                     <div class="icon-wrap">${channel.icon}</div>
                     <div class="card-title">${channel.name}</div>
-                    <div class="card-sub">${channel.sub}</div>
                 `;
 
                 container.appendChild(card);
@@ -435,10 +442,9 @@
         searchInput.addEventListener("input", function () {
             const value = normalizeText(searchInput.value);
 
-            const filtered = channels.filter(channel => {
-                return normalizeText(channel.name).includes(value) ||
-                       normalizeText(channel.sub).includes(value);
-            });
+            const filtered = channels.filter(channel =>
+                normalizeText(channel.name).includes(value)
+            );
 
             renderChannels(filtered);
         });
