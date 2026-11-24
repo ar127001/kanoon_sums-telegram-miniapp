@@ -2,294 +2,289 @@
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color" content="#101827">
-
-    <title>کانون‌های دانشگاه علوم پزشکی شیراز</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071a52" />
+    <title>کانون‌های فرهنگی و هنری دانشگاه علوم پزشکی شیراز</title>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     <style>
         * {
             box-sizing: border-box;
+        }
+
+        html,
+        body {
             margin: 0;
             padding: 0;
+            min-height: 100%;
+            font-family: Tahoma, sans-serif;
         }
 
         body {
-            min-height: 100vh;
-            padding: 35px 18px 30px;
-            background:
-                radial-gradient(ellipse at 50% 0%, #263b59 0%, transparent 55%),
-                linear-gradient(160deg, #101827, #172536 55%, #101827);
             color: #ffffff;
-            font-family: Tahoma, sans-serif;
+            background-color: #071a52;
+            background-image:
+                linear-gradient(rgba(4, 15, 55, 0.82), rgba(4, 15, 55, 0.9)),
+                url("background.jpg");
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 16px 36px;
+        }
+
+        .hero {
             text-align: center;
+            padding: 22px 18px 18px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
         }
 
-        .container {
-            max-width: 680px;
-            margin: auto;
-        }
-
-        /* Header */
-
-        .header {
-            margin-bottom: 32px;
-        }
-
-        .header-icon {
-            width: 76px;
-            height: 76px;
-            margin: 0 auto 18px;
-            display: flex;
+        .hero-badge {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 25px;
-            background: linear-gradient(135deg, #328bd5, #6256c9);
-            box-shadow: 0 10px 35px rgba(50, 139, 213, 0.25);
-            font-size: 36px;
-        }
-
-        h1 {
-            font-size: 21px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .subtitle {
-            color: #a9b9ca;
+            padding: 8px 14px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: #d9e7ff;
             font-size: 12px;
+        }
+
+        .hero h1 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            line-height: 1.8;
+            color: #ffffff;
+        }
+
+        .hero p {
+            margin: 0 auto;
+            max-width: 700px;
+            color: #d7e3ff;
+            font-size: 13px;
             line-height: 2;
         }
 
-        .header-line {
-            width: 55px;
-            height: 3px;
-            margin: 20px auto 0;
-            border-radius: 10px;
-            background: linear-gradient(90deg, #328bd5, #8c79e8);
+        .toolbar {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 20px 0 18px;
         }
 
-        /* Section */
+        .search-box {
+            position: relative;
+        }
 
-        .section-title {
+        .search-box input {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 14px 16px;
+            font-size: 14px;
+            outline: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-box input::placeholder {
+            color: #c6d4f3;
+        }
+
+        .section-head {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 18px;
-            padding: 0 3px;
+            gap: 12px;
+            margin-bottom: 14px;
+            padding: 0 2px;
         }
 
-        .section-title h2 {
-            font-size: 14px;
-            font-weight: 600;
+        .section-head h2 {
+            margin: 0;
+            font-size: 16px;
+            color: #ffffff;
         }
 
-        .count {
-            color: #9bb9d8;
-            background: rgba(65, 135, 205, 0.15);
-            border: 1px solid rgba(100, 165, 225, 0.2);
-            border-radius: 20px;
-            padding: 6px 12px;
-            font-size: 11px;
+        .count-badge {
+            white-space: nowrap;
+            font-size: 12px;
+            color: #d9e7ff;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.14);
         }
-
-        /* Grid */
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 13px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
         }
 
-        /* Cards */
-
-        .item {
-            min-width: 0;
-            min-height: 132px;
-            padding: 17px 7px 13px;
-            border: 1px solid rgba(255, 255, 255, 0.075);
-            border-radius: 19px;
-            background: linear-gradient(
-                145deg,
-                rgba(255, 255, 255, 0.085),
-                rgba(255, 255, 255, 0.025)
-            );
-            color: #ffffff;
+        .card {
             text-decoration: none;
+            color: #ffffff;
+            border-radius: 22px;
+            padding: 16px 12px 14px;
+            min-height: 148px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.20);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            gap: 11px;
-            cursor: pointer;
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease,
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
+            text-align: center;
             -webkit-tap-highlight-color: transparent;
         }
 
-        .item:hover {
-            transform: translateY(-5px);
-            background: rgba(58, 126, 190, 0.17);
-            border-color: rgba(100, 170, 235, 0.4);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.24);
         }
 
-        .item:active {
-            transform: scale(0.96);
+        .card:active {
+            transform: scale(0.98);
         }
 
-        .icon {
-            width: 59px;
-            height: 59px;
-            border-radius: 18px;
+        .icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 29px;
-            background: rgba(70, 140, 210, 0.17);
-            border: 1px solid rgba(120, 175, 230, 0.12);
+            font-size: 30px;
+            background: linear-gradient(135deg, rgba(91, 160, 255, 0.28), rgba(255, 255, 255, 0.12));
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
         }
 
-        .item p {
-            font-size: 11px;
+        .card-title {
+            font-size: 13px;
             line-height: 1.9;
-            font-weight: 500;
-            color: #e5edf6;
-            overflow-wrap: anywhere;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
         }
 
-        /* Footer */
+        .card-sub {
+            font-size: 11px;
+            line-height: 1.8;
+            color: #d9e7ff;
+        }
 
-        .footer {
-            margin-top: 35px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.07);
-            color: #7f91a5;
-            font-size: 10px;
+        .empty-state {
+            display: none;
+            text-align: center;
+            padding: 28px 16px;
+            margin-top: 10px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #d7e3ff;
             line-height: 2;
         }
 
-        .footer strong {
-            color: #a9bfd5;
-            font-weight: 500;
+        .footer {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 11px;
+            line-height: 2;
+            color: #cbd8f2;
+            padding: 18px 12px 0;
         }
 
-        /* Responsive */
+        .footer strong {
+            color: #ffffff;
+        }
 
-        @media (min-width: 550px) {
+        @media (min-width: 700px) {
+            .page {
+                padding: 30px 20px 40px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
             .grid {
                 grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 16px;
             }
 
-            .item {
-                min-height: 145px;
-                padding-top: 20px;
-            }
-
-            .icon {
-                width: 65px;
-                height: 65px;
-                font-size: 32px;
-            }
-
-            .item p {
-                font-size: 12px;
+            .card {
+                min-height: 160px;
             }
         }
-
-        @media (max-width: 340px) {
-            .grid {
-                gap: 9px;
-            }
-
-            .item {
-                min-height: 120px;
-                padding-left: 4px;
-                padding-right: 4px;
-            }
-
-            .icon {
-                width: 53px;
-                height: 53px;
-                font-size: 26px;
-            }
-
-            .item p {
-                font-size: 10px;
-            }
-        }
-
     </style>
 </head>
 
 <body>
+    <div class="page">
 
-    <div class="container">
-
-        <!-- Header -->
-
-        <header class="header">
-
-            <div class="header-icon">🎓</div>
-
-            <h1>درگاه کانون‌ها</h1>
-
-            <div class="subtitle">
-                دانشگاه علوم پزشکی شیراز
-                <br>
-                دنیایی از هنر، فرهنگ، اندیشه و فعالیت‌های دانشجویی
-            </div>
-
-            <div class="header-line"></div>
-
+        <header class="hero">
+            <div class="hero-badge">درگاه جامع کانون‌های دانشجویی</div>
+            <h1>کانون‌های فرهنگی و هنری دانشگاه علوم پزشکی شیراز</h1>
+            <p>
+                برای مشاهده و ورود به کانال هر کانون، روی کارت مربوطه کلیک کنید.
+                این سامانه برای دسترسی سریع‌تر دانشجویان به کانون‌های فعال دانشگاه طراحی شده است.
+            </p>
         </header>
 
-
-        <!-- Channels Section -->
-
-        <section>
-
-            <div class="section-title">
-
-                <h2>کانون‌های دانشگاه</h2>
-
-                <span class="count">۱۵ کانون</span>
-
+        <section class="toolbar">
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="جست‌وجوی نام کانون..."
+                    aria-label="جست‌وجوی کانون"
+                />
             </div>
-
-
-            <div class="grid" id="channels"></div>
-
         </section>
 
+        <div class="section-head">
+            <h2>فهرست کانون‌ها</h2>
+            <div class="count-badge" id="countBadge">۱۵ کانون</div>
+        </div>
 
-        <!-- Footer -->
+        <main class="grid" id="channels"></main>
+
+        <div class="empty-state" id="emptyState">
+            نتیجه‌ای برای جست‌وجوی شما پیدا نشد.
+        </div>
 
         <footer class="footer">
-
-            <strong>کانون‌های فرهنگی و هنری دانشگاه علوم پزشکی شیراز</strong>
-
-            <br>
-
-            سامانه معرفی و دسترسی به کانال‌های کانون‌ها
-
+            <strong>دانشگاه علوم پزشکی شیراز</strong>
+            <br />
+            سامانه معرفی کانون‌های فرهنگی و هنری
         </footer>
-
     </div>
 
-
     <script>
-
-        // Telegram Web App initialization
-
         const tg = window.Telegram?.WebApp;
 
         if (tg) {
@@ -297,146 +292,159 @@
             tg.expand();
         }
 
-
-        // University cultural and student associations
-
         const channels = [
-
             {
                 name: "کانون کتاب",
                 icon: "📚",
-                url: "https://t.me/sumsketab"
+                url: "https://t.me/sumsketab",
+                sub: "مطالعه، کتاب‌خوانی و فرهنگ کتاب"
             },
-
             {
                 name: "کانون نجوم",
                 icon: "🔭",
-                url: "https://t.me/Sums_Astronomy"
+                url: "https://t.me/Sums_Astronomy",
+                sub: "ستاره‌ها، آسمان و رصد"
             },
-
             {
                 name: "کانون شعر و ادب دچار",
                 icon: "✒️",
-                url: "https://t.me/dochar_sums"
+                url: "https://t.me/dochar_sums",
+                sub: "شعر، ادبیات و نویسندگی"
             },
-
             {
                 name: "کانون خانه سبز",
                 icon: "🌱",
-                url: "https://t.me/Sums_Green_House"
+                url: "https://t.me/Sums_Green_House",
+                sub: "محیط زیست و طبیعت"
             },
-
             {
                 name: "کانون خیریه طعم مهربانی",
-                icon: "🫂",
-                url: "https://t.me/taamemehr_sums"
+                icon: "❤️",
+                url: "https://t.me/taamemehr_sums",
+                sub: "مهربانی و فعالیت‌های خیرخواهانه"
             },
-
             {
                 name: "کانون خیریه هم‌نبض",
                 icon: "💌",
-                url: "https://t.me/hamn_abzz"
+                url: "https://t.me/hamn_abzz",
+                sub: "همدلی و خدمات داوطلبانه"
             },
-
             {
                 name: "کانون هلال احمر",
                 icon: "🏥",
-                url: "https://t.me/sumshelal"
+                url: "https://t.me/sumshelal",
+                sub: "امداد، سلامت و انسان‌دوستی"
             },
-
             {
-                name: "کانون رسانه",
+                name: "مرکز رسانه",
                 icon: "📸",
-                url: "https://t.me/MediaCenter_sums"
+                url: "https://t.me/MediaCenter_sums",
+                sub: "رسانه، تولید محتوا و خبر"
             },
-
             {
                 name: "کانون گردشگری",
                 icon: "🏕️",
-                url: "https://t.me/gardeshgari_sums"
+                url: "https://t.me/gardeshgari_sums",
+                sub: "سفر، طبیعت‌گردی و تجربه"
             },
-
             {
                 name: "کانون هنر",
                 icon: "🎨",
-                url: "https://t.me/kanoonhonar_sums"
+                url: "https://t.me/kanoonhonar_sums",
+                sub: "آفرینش، هنر و خلاقیت"
             },
-
             {
                 name: "کانون جهادی کیش اندیش",
                 icon: "🤲",
-                url: "https://t.me/Kishandish_sums"
+                url: "https://t.me/Kishandish_sums",
+                sub: "خدمت‌رسانی و فعالیت جهادی"
             },
-
             {
                 name: "کانون مهدویت",
                 icon: "🕌",
-                url: "https://t.me/tanha_nisti313"
+                url: "https://t.me/tanha_nisti313",
+                sub: "معارف، معنویت و مهدویت"
             },
-
             {
                 name: "کانون تئاتر",
                 icon: "🎭",
-                url: "https://t.me/kanoon_theatre"
+                url: "https://t.me/kanoon_theatre",
+                sub: "نمایش، اجرا و صحنه"
             },
-
             {
                 name: "کانون فیلم",
                 icon: "🎥",
-                url: "https://t.me/AnjomanFilmCh"
+                url: "https://t.me/AnjomanFilmCh",
+                sub: "سینما، نقد و هنر تصویر"
             },
-
             {
                 name: "کانون موسیقی",
                 icon: "🎼",
-                url: "https://t.me/music_sums"
+                url: "https://t.me/music_sums",
+                sub: "آوا، نوا و موسیقی"
             }
-
         ];
 
-
-        // Render channels
-
         const container = document.getElementById("channels");
+        const searchInput = document.getElementById("searchInput");
+        const countBadge = document.getElementById("countBadge");
+        const emptyState = document.getElementById("emptyState");
 
-        channels.forEach(channel => {
+        function openLink(url, event) {
+            if (tg) {
+                event.preventDefault();
+                tg.openTelegramLink(url);
+            }
+        }
 
-            const item = document.createElement("a");
+        function renderChannels(list) {
+            container.innerHTML = "";
 
-            item.className = "item";
-            item.href = channel.url;
-            item.setAttribute("aria-label", channel.name);
+            list.forEach(channel => {
+                const card = document.createElement("a");
+                card.className = "card";
+                card.href = channel.url;
+                card.target = "_blank";
+                card.rel = "noopener noreferrer";
 
-            const icon = document.createElement("div");
+                card.addEventListener("click", function (event) {
+                    openLink(channel.url, event);
+                });
 
-            icon.className = "icon";
-            icon.textContent = channel.icon;
+                card.innerHTML = `
+                    <div class="icon-wrap">${channel.icon}</div>
+                    <div class="card-title">${channel.name}</div>
+                    <div class="card-sub">${channel.sub}</div>
+                `;
 
-            const name = document.createElement("p");
-
-            name.textContent = channel.name;
-
-            item.appendChild(icon);
-            item.appendChild(name);
-
-
-            // Open Telegram channel
-
-            item.addEventListener("click", function(event) {
-
-                if (tg) {
-                    event.preventDefault();
-                    tg.openTelegramLink(channel.url);
-                }
-
+                container.appendChild(card);
             });
 
-            container.appendChild(item);
+            countBadge.textContent = `${list.length} کانون`;
+            emptyState.style.display = list.length ? "none" : "block";
+        }
 
+        function normalizeText(text) {
+            return text
+                .replace(/ي/g, "ی")
+                .replace(/ك/g, "ک")
+                .trim()
+                .toLowerCase();
+        }
+
+        searchInput.addEventListener("input", function () {
+            const value = normalizeText(searchInput.value);
+
+            const filtered = channels.filter(channel => {
+                return normalizeText(channel.name).includes(value) ||
+                       normalizeText(channel.sub).includes(value);
+            });
+
+            renderChannels(filtered);
         });
 
+        renderChannels(channels);
     </script>
-
 </body>
 
 </html>
