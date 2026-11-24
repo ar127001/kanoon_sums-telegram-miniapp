@@ -13,7 +13,7 @@
     <style>
 
         :root {
-            --bottom-space: 110px;
+            --bottom-space: 40px;
             --background-color: #060d3b;
             --glass-opacity: 0.75;
             --glass-blur: 8px;
@@ -70,15 +70,16 @@
 
         .page {
             max-width: 900px;
+
             min-height: 100vh;
             min-height: 100dvh;
 
             margin: 0 auto;
 
-            padding: 24px 16px 18px;
+            padding: 24px 16px 8px;
 
             padding-bottom: calc(
-                18px + env(safe-area-inset-bottom, 0px)
+                8px + env(safe-area-inset-bottom, 0px)
             );
 
             display: flex;
@@ -372,22 +373,23 @@
         .footer {
             margin-top: auto;
 
-            padding: 28px 12px 6px;
+            padding: 30px 6px 0;
 
             text-align: center;
 
             font-size: 11px;
-            line-height: 2.2;
+            line-height: 1.8;
 
             color: #cbd8f2;
 
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            text-shadow:
+                0 2px 6px rgba(0, 0, 0, 0.5);
         }
 
         .footer strong {
             display: block;
 
-            margin-bottom: 5px;
+            margin-bottom: 3px;
 
             font-size: 12px;
             color: #ffffff;
@@ -423,7 +425,9 @@
         @media (min-width: 700px) {
 
             .page {
-                padding: 30px 20px 18px;
+                padding-top: 30px;
+                padding-right: 20px;
+                padding-left: 20px;
             }
 
             .hero h1 {
