@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کانون‌های دانشگاه علوم پزشکی شیراز</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 25px 18px;
+    background: #17212b;
+    color: #ffffff;
+    font-family: Tahoma, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #aab7c4;
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 12px;
+}
+
+.item {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.icon {
+    width: 65px;
+    height: 65px;
+    margin: auto;
+    border-radius: 20px;
+    background: #2481cc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 29px;
+    transition: 0.2s;
+}
+
+.item:active .icon {
+    transform: scale(0.92);
+}
+
+.item p {
+    font-size: 11px;
+    line-height: 1.8;
+    margin-top: 9px;
+}
+
+.footer {
+    margin-top: 35px;
+    color: #778899;
+    font-size: 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>کانون‌های فرهنگی و هنری</h2>
+<div class="subtitle">
+دانشگاه علوم پزشکی شیراز
+</div>
+
+<div class="grid" id="channels"></div>
+
+<div class="footer">
+سامانه معرفی کانون‌های دانشگاه
+</div>
+
+<script>
+
+const tg = window.Telegram.WebApp;
+
+tg.ready();
+tg.expand();
+
+const channels = [
+    {name: "کتاب", icon: "📚", url: "https://t.me/sumsketab"},
+    {name: "نجوم", icon: "🔭", url: "https://t.me/Sums_Astronomy"},
+    {name: "دوچار", icon: "🎭", url: "https://t.me/dochar_sums"},
+    {name: "خانه سبز", icon: "🌱", url: "https://t.me/Sums_Green_House"},
+    {name: "طعم مهر", icon: "❤️", url: "https://t.me/taamemehr_sums"},
+    {name: "هم‌نوا", icon: "🎼", url: "https://t.me/hamn_abzz"},
+    {name: "هلال", icon: "🌙", url: "https://t.me/sumshelal"},
+    {name: "مرکز رسانه", icon: "📸", url: "https://t.me/MediaCenter_sums"},
+    {name: "گردشگری", icon: "🏕️", url: "https://t.me/gardeshgari_sums"},
+    {name: "هنر", icon: "🎨", url: "https://t.me/kanoonhonar_sums"},
+    {name: "کیش اندیش", icon: "💡", url: "https://t.me/Kishandish_sums"},
+    {name: "تنها نیستی", icon: "🤝", url: "https://t.me/tanha_nisti313"},
+    {name: "تئاتر", icon: "🎬", url: "https://t.me/kanoon_theatre"},
+    {name: "انجمن فیلم", icon: "🎥", url: "https://t.me/AnjomanFilmCh"}
+];
+
+const container = document.getElementById("channels");
+
+channels.forEach(channel => {
+
+    const item = document.createElement("div");
+    item.className = "item";
+
+    item.innerHTML = `
+        <div class="icon">${channel.icon}</div>
+        <p>${channel.name}</p>
+    `;
+
+    item.addEventListener("click", () => {
+        tg.openTelegramLink(channel.url);
+    });
+
+    container.appendChild(item);
+
+});
+
+</script>
+
+</body>
+</html>
