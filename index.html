@@ -40,8 +40,8 @@
 
             background-image:
                 linear-gradient(
-                    rgba(4, 15, 55, 0.80),
-                    rgba(4, 15, 55, 0.88)
+                    rgba(4, 15, 55, 0.20),
+                    rgba(4, 15, 55, 0.30)
                 ),
                 url("background.jpg");
 
@@ -68,10 +68,10 @@
             border: 1px solid rgba(255, 255, 255, 0.16);
             border-radius: 24px;
 
-            background: rgba(18, 31, 75, 0.40);
+            background: rgba(18, 31, 75, 0.75);
 
-            -webkit-backdrop-filter: blur(22px) saturate(130%);
-            backdrop-filter: blur(22px) saturate(130%);
+            -webkit-backdrop-filter: blur(8px) saturate(130%);
+            backdrop-filter: blur(8px) saturate(130%);
 
             box-shadow:
                 0 10px 30px rgba(0, 0, 0, 0.22),
@@ -131,7 +131,7 @@
             border: 1px solid rgba(255, 255, 255, 0.16);
             border-radius: 16px;
 
-            background: rgba(21, 35, 82, 0.40);
+            background: rgba(21, 35, 82, 0.75);
             color: #ffffff;
 
             padding: 14px 16px;
@@ -141,8 +141,8 @@
 
             outline: none;
 
-            -webkit-backdrop-filter: blur(22px);
-            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
 
             transition:
                 border-color 0.2s ease,
@@ -188,11 +188,11 @@
             padding: 8px 12px;
             border-radius: 999px;
 
-            background: rgba(21, 35, 82, 0.40);
+            background: rgba(21, 35, 82, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.14);
 
-            -webkit-backdrop-filter: blur(22px);
-            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
         }
 
         /* Grid */
@@ -203,7 +203,8 @@
             gap: 14px;
         }
 
-        /* Frosted Glass Cards - 40% Opacity */
+        /* Frosted Glass Cards */
+        /* Opacity: 75% — Blur: 8px */
 
         .card {
             position: relative;
@@ -220,12 +221,12 @@
 
             background: linear-gradient(
                 145deg,
-                rgba(42, 57, 110, 0.42),
-                rgba(25, 37, 85, 0.38)
+                rgba(42, 57, 110, 0.75),
+                rgba(25, 37, 85, 0.75)
             );
 
-            -webkit-backdrop-filter: blur(22px) saturate(130%);
-            backdrop-filter: blur(22px) saturate(130%);
+            -webkit-backdrop-filter: blur(8px) saturate(130%);
+            backdrop-filter: blur(8px) saturate(130%);
 
             border: 1px solid rgba(255, 255, 255, 0.18);
 
@@ -241,7 +242,6 @@
             text-align: center;
 
             overflow: hidden;
-            isolation: isolate;
 
             cursor: pointer;
 
@@ -323,14 +323,14 @@
 
             border-radius: 20px;
 
-            background: rgba(18, 31, 75, 0.40);
+            background: rgba(18, 31, 75, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.12);
 
             color: #d7e3ff;
             line-height: 2;
 
-            -webkit-backdrop-filter: blur(22px);
-            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
         }
 
         /* Footer */
@@ -346,6 +346,8 @@
             color: #cbd8f2;
 
             padding: 18px 12px 0;
+
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
         }
 
         .footer strong {
@@ -364,14 +366,14 @@
             .search-box input,
             .count-badge,
             .empty-state {
-                background: rgba(25, 39, 86, 0.75);
+                background: rgba(25, 39, 86, 0.88);
             }
 
             .card {
                 background: linear-gradient(
                     145deg,
-                    rgba(42, 57, 110, 0.77),
-                    rgba(25, 37, 85, 0.73)
+                    rgba(42, 57, 110, 0.88),
+                    rgba(25, 37, 85, 0.88)
                 );
             }
 
@@ -435,6 +437,8 @@
             }
 
         }
+
+        /* Reduced Motion */
 
         @media (prefers-reduced-motion: reduce) {
 
@@ -658,10 +662,14 @@
             ) {
 
                 try {
+
                     tg.openTelegramLink(url);
                     event.preventDefault();
+
                 } catch (error) {
+
                     console.warn(error);
+
                 }
 
             }
